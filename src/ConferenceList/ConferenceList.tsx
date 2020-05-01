@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import * as React from "react";
+import { ConferenceListItem } from "./ConferenceListItem";
 
 const CONFERENCES = gql`
   {
@@ -37,7 +38,10 @@ const ConferenceList: React.FunctionComponent = () => {
     <ul>
       {data?.conferences.map((conference) => (
         <li key={conference.uniqueName}>
-          <b>{conference.displayName}</b> <p>{conference.description}</p>
+          <ConferenceListItem
+            displayName={conference.displayName}
+            description={conference.description}
+          />
         </li>
       ))}
     </ul>
