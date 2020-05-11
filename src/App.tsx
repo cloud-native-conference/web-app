@@ -6,6 +6,8 @@ import {
   HttpLink,
 } from "@apollo/client";
 import ConferenceList from "./ConferenceList/ConferenceList";
+import { Provider, themes } from "@fluentui/react-northstar";
+
 const serverUri = "http://localhost:4000/";
 
 const client = new ApolloClient({
@@ -16,8 +18,10 @@ const client = new ApolloClient({
 });
 
 export const App: React.FunctionComponent = () => (
-  <ApolloProvider client={client}>
-    <h1>Cloud Native Conference Web App</h1>
-    <ConferenceList />
-  </ApolloProvider>
+  <Provider theme={themes.teams}>
+    <ApolloProvider client={client}>
+      <h1>Cloud Native Conference Web App</h1>
+      <ConferenceList />
+    </ApolloProvider>
+  </Provider>
 );

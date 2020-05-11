@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import * as React from "react";
-import { ConferenceListItem } from "./ConferenceListItem";
+import { List } from "@fluentui/react-northstar";
 
 const CONFERENCES = gql`
   {
@@ -35,16 +35,14 @@ const ConferenceList: React.FunctionComponent = () => {
   }
 
   return (
-    <ul>
-      {data?.conferences.map((conference) => (
-        <li key={conference.uniqueName}>
-          <ConferenceListItem
-            displayName={conference.displayName}
-            description={conference.description}
-          />
-        </li>
-      ))}
-    </ul>
+    <List
+      navigable
+      items={data?.conferences.map((conference) => ({
+        key: conference.uniqueName,
+        header: conference.displayName,
+        content: conference?.description,
+      }))}
+    />
   );
 };
 
