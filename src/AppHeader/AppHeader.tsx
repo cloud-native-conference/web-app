@@ -1,5 +1,11 @@
 import * as React from "react";
-import { Segment, Flex, Button } from "@fluentui/react-northstar";
+import {
+  Flex,
+  MenuButton,
+  Button,
+  AddIcon,
+  Segment,
+} from "@fluentui/react-northstar";
 import { useHistory } from "react-router-dom";
 
 export const AppHeader: React.FC = () => {
@@ -20,6 +26,10 @@ export const AppHeader: React.FC = () => {
           onClick={() => {
             history.push("/");
           }}
+        />
+        <MenuButton
+          trigger={<Button inverted icon={<AddIcon />} iconOnly />}
+          menu={["New Conference"]}
         />
       </Flex>
     </Segment>
