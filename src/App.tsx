@@ -9,6 +9,7 @@ import { Provider, themes } from "@fluentui/react-northstar";
 import { Home } from "./Home/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AppHeader } from "./AppHeader/AppHeader";
+import { NewConference } from "./Conference/NewConference";
 
 const serverUri = "http://localhost:4000/";
 
@@ -25,6 +26,9 @@ export const App: React.FunctionComponent = () => (
       <BrowserRouter>
         <AppHeader />
         <Switch>
+          <Route path="/new-conference">
+            <NewConference />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

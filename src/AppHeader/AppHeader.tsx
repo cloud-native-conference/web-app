@@ -29,7 +29,16 @@ export const AppHeader: React.FC = () => {
         />
         <MenuButton
           trigger={<Button inverted icon={<AddIcon />} iconOnly />}
-          menu={["New Conference"]}
+          menu={[
+            {
+              content: "New Conference",
+              onClick: () => {
+                history.push("/new-conference");
+                console.log("yo mama");
+              },
+            },
+          ]}
+          on="click"
         />
       </Flex>
     </Segment>
