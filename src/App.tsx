@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 import { Provider, themes } from "@fluentui/react-northstar";
 import { Home } from "./Home/Home";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const serverUri = "http://localhost:4000/";
 
@@ -20,7 +21,13 @@ const client = new ApolloClient({
 export const App: React.FunctionComponent = () => (
   <Provider theme={themes.teams}>
     <ApolloProvider client={client}>
-      <Home />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </ApolloProvider>
   </Provider>
 );
