@@ -6,6 +6,7 @@ import {
   TextArea,
   Button,
   Flex,
+  FormProps,
 } from "@fluentui/react-northstar";
 
 interface NewConferenceProps {}
@@ -15,7 +16,9 @@ const maxWidth = "696px";
 export const NewConference: React.FunctionComponent<NewConferenceProps> = (
   _
 ) => {
+  const [uniqueName, setUniqueName] = React.useState<string>("");
   const [displayName, setDisplayName] = React.useState<string>("");
+  const [description, setDescription] = React.useState<string>("");
 
   return (
     <Flex
@@ -38,6 +41,7 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
             name: "conferenceUniqueName",
             id: "conference-unique-name",
             key: "conference-unique-name",
+            type: "text",
             required: true,
             design: {
               minWidth: "60%",
@@ -45,7 +49,19 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
               marginRight: "auto",
             },
             control: {
-              as: () => <Input fluid />,
+              type: "text",
+              content: (
+                <Input
+                  fluid
+                  value={uniqueName}
+                  onChange={(_, data?) => {
+                    if (!data) {
+                      return;
+                    }
+                    setUniqueName(data?.value);
+                  }}
+                />
+              ),
               showSuccessIndicator: false,
             },
           },
@@ -54,6 +70,7 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
             name: "conferenceDisplayName",
             id: "conference-display-name",
             key: "conference-display-name",
+            type: "text",
             required: true,
             design: {
               minWidth: "60%",
@@ -61,15 +78,15 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
               marginRight: "auto",
             },
             control: {
-              as: () => (
+              content: (
                 <Input
                   fluid
-                  onChange={(_, text) => {
-                    if (!text) {
+                  value={displayName}
+                  onChange={(_, data) => {
+                    if (!data) {
                       return;
                     }
-                    setDisplayName(text?.value);
-                    console.log(displayName);
+                    setDisplayName(data?.value);
                   }}
                 />
               ),
@@ -88,7 +105,18 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
               marginRight: "auto",
             },
             control: {
-              as: () => <TextArea fluid />,
+              content: (
+                <TextArea
+                  fluid
+                  value={description}
+                  onChange={(_, data) => {
+                    if (!data?.value) {
+                      return;
+                    }
+                    setDescription(data?.value);
+                  }}
+                />
+              ),
             },
           },
           {
@@ -99,7 +127,7 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
             key: "create-conference",
           },
         ]}
-        onSubmit={(_, data) => {
+        onSubmit={(_, data: FormProps | undefined) => {
           console.log(data);
         }}
       />
