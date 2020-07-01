@@ -7,6 +7,7 @@ import {
   Button,
   Flex,
   FormProps,
+  Header,
 } from "@fluentui/react-northstar";
 
 interface NewConferenceProps {}
@@ -29,7 +30,12 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
         margin: "auto",
       }}
     >
-      <h1>Create a new conference</h1>
+      <Header
+        as="h2"
+        content="Create a new conference"
+        description="A conference is an event that hosts a collection
+        of keynotes, talks and sessions"
+      />
       <Divider />
       <Form
         design={{
