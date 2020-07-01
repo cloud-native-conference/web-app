@@ -8,6 +8,7 @@ import {
 import { Provider, themes } from "@fluentui/react-northstar";
 import { Home } from "./Home/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { AppHeader } from "./AppHeader/AppHeader";
 
 const serverUri = "http://localhost:4000/";
 
@@ -22,6 +23,7 @@ export const App: React.FunctionComponent = () => (
   <Provider theme={themes.teams}>
     <ApolloProvider client={client}>
       <BrowserRouter>
+        <AppHeader />
         <Switch>
           <Route path="/">
             <Home />
