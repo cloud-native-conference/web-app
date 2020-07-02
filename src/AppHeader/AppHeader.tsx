@@ -5,6 +5,7 @@ import {
   Button,
   AddIcon,
   Segment,
+  FlexItem,
 } from "@fluentui/react-northstar";
 import { useHistory } from "react-router-dom";
 
@@ -27,19 +28,20 @@ export const AppHeader: React.FC = () => {
             history.push("/");
           }}
         />
-        <MenuButton
-          trigger={<Button inverted icon={<AddIcon />} iconOnly />}
-          menu={[
-            {
-              content: "New Conference",
-              onClick: () => {
-                history.push("/new-conference");
-                console.log("yo mama");
+        <FlexItem push>
+          <MenuButton
+            trigger={<Button inverted icon={<AddIcon />} iconOnly />}
+            menu={[
+              {
+                content: "New Conference",
+                onClick: () => {
+                  history.push("/new-conference");
+                },
               },
-            },
-          ]}
-          on="click"
-        />
+            ]}
+            on="click"
+          />
+        </FlexItem>
       </Flex>
     </Segment>
   );

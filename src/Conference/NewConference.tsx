@@ -34,7 +34,7 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
         as="h2"
         content="Create a new conference"
         description="A conference is an event that hosts a collection
-        of keynotes, talks and sessions"
+         of keynotes, talks and sessions"
       />
       <Divider />
       <Form
