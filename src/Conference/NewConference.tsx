@@ -8,6 +8,7 @@ import {
   Flex,
   FormProps,
   Header,
+  AddIcon,
 } from "@fluentui/react-northstar";
 
 interface NewConferenceProps {}
@@ -127,8 +128,13 @@ export const NewConference: React.FunctionComponent<NewConferenceProps> = (
           },
           {
             control: {
-              as: Button,
-              content: "Create conference",
+              content: (
+                <Button
+                  icon={<AddIcon />}
+                  content="Create conference"
+                  primary
+                />
+              ),
             },
             key: "create-conference",
           },
