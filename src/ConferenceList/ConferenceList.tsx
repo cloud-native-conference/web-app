@@ -1,30 +1,22 @@
-import { useQuery } from "@apollo/client";
 import * as React from "react";
-import { List } from "@fluentui/react-northstar";
-import { ConferenceListData, CONFERENCES } from "../models/conference";
+import { getConferences } from "../api/api";
+import { Conference } from "../models/conference";
+import { ConferenceListItem } from "./ConferenceListItem";
 
-const ConferenceList: React.FunctionComponent = () => {
-  const { data, loading, error } = useQuery<ConferenceListData>(CONFERENCES);
+export const ConferenceList: React.FC = () => {
+  const [conferences, setConferences] = React.useState<Conference[]>([]);
 
-  if (error) {
-    console.log(error);
-    return <p>{error}</p>;
-  }
-
-  if (loading) {
-    return <h1>loading...</h1>;
-  }
-
+  React.useEffect(() => {
+    (async () => {
+      const data = await getConferences();
+      setConferences(data);
+    })();
+  }, []);
   return (
-    <List
-      navigable
-      items={data?.conferences.map((conference) => ({
-        key: conference.uniqueName,
-        header: conference.displayName,
-        content: conference?.description,
-      }))}
-    />
+    <div>
+      {conferences.map((conference) => (
+        <ConferenceListItem conference={conference} />
+      ))}
+    </div>
   );
 };
-
-export default ConferenceList;
