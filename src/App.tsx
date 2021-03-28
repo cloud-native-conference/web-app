@@ -1,21 +1,27 @@
 import * as React from "react";
-import { Home } from "./Home/Home";
+import { Home } from "./Pages/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NavBar } from "./NavBar/NavBar";
-import { UserContext } from "./UserContext";
+import { Conferences } from "./Pages/Conferences/Conferences";
+import { CreateConference } from "./Pages/Conferences/CreateConference";
+import { Sessions } from "./Pages/Sessions/Sessions";
 
 export const App: React.FunctionComponent = () => (
-  <UserContext.Provider value={undefined}>
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path="/new-conference">
-          <h1>new conf</h1>
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  </UserContext.Provider>
+  <BrowserRouter>
+    <NavBar />
+    <Switch>
+      <Route path="/new-conference">
+        <CreateConference />
+      </Route>
+      <Route path="/conferences">
+        <Conferences />
+      </Route>
+      <Route path="/sessions">
+        <Sessions />
+      </Route>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
+  </BrowserRouter>
 );

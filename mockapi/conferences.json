@@ -1,0 +1,34 @@
+{
+  "conferences": [
+    {
+      "id": "1",
+      "uniqueName": "test-conf-1",
+      "displayName": "Test Conference One",
+      "description": "The best test conference"
+    },
+    {
+      "id": "2",
+      "uniqueName": "test-conf-2",
+      "displayName": "Test Conference Two",
+      "description": "The real best test conference"
+    },
+    {
+      "id": "3",
+      "uniqueName": "test-conf-3",
+      "displayName": "Test DisplayName",
+      "description": "something interesting"
+    },
+    {
+      "id": "4",
+      "uniqueName": "test-conf-4",
+      "displayName": "Test Conference 4",
+      "description": "something even more interesting"
+    },
+    {
+      "id": "5",
+      "uniqueName": "test-conf-5",
+      "displayName": "Test Conference 5",
+      "description": "something fairly interesting"
+    }
+  ]
+}

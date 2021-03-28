@@ -15,7 +15,10 @@ export const ConferenceList: React.FC = () => {
   return (
     <div>
       {conferences.map((conference) => (
-        <ConferenceListItem conference={conference} />
+        <ConferenceListItem
+          key={conference.uniqueName}
+          conference={conference}
+        />
       ))}
     </div>
   );

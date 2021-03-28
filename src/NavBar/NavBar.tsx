@@ -1,13 +1,16 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { Close } from "./Close";
 import { Hamburger } from "./Hamburger";
 
 const MenuItems = [
   {
     text: "Conferences",
+    href: "/conferences",
   },
   {
     text: "Sessions",
+    href: "/sessions",
   },
 ];
 
@@ -32,19 +35,21 @@ export const NavBar: React.FC = (_) => {
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex-shrink-0 flex items-center">
-              <img
-                className="block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                alt="Workflow"
-              />
-            </div>
+            <Link to="/">
+              <div className="flex-shrink-0 flex items-center">
+                <img
+                  className="block h-8 w-auto"
+                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                  alt="Workflow"
+                />
+              </div>
+            </Link>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
                 {MenuItems.map((item) => (
                   <a
                     key={item.text}
-                    href="#"
+                    href={item.href}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     {item.text}

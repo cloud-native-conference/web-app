@@ -5,8 +5,9 @@
   "description": "Cloud Native Conference Web App",
   "scripts": {
     "start": "webpack serve --mode development --config webpack.config.js",
+    "api": "json-server --watch mockapi/conferences.json --port 5000",
     "build": "webpack --mode production --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,24 +20,30 @@
   },
   "homepage": "https://github.com/cloud-native-conference/web-app#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.21",
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
+    "autoprefixer": "^10.2.4",
     "css-loader": "^5.0.2",
     "html-webpack-plugin": "^5.1.0",
+    "jest": "^26.6.3",
+    "json-server": "^0.16.3",
+    "postcss": "^8.2.6",
     "postcss-loader": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "style-loader": "^2.0.0",
+    "tailwindcss": "^2.0.3",
+    "ts-jest": "^26.5.4",
     "ts-loader": "8.0.17",
     "typescript": "^4.1.5",
-    "autoprefixer": "^10.2.4",
-    "postcss": "^8.2.6",
-    "tailwindcss": "^2.0.3",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@tailwindcss/forms": "^0.2.1"
+  }
 }
