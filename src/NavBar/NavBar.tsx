@@ -8,10 +8,6 @@ const MenuItems = [
     text: "Conferences",
     href: "/conferences",
   },
-  {
-    text: "Sessions",
-    href: "/sessions",
-  },
 ];
 
 export const NavBar: React.FC = (_) => {

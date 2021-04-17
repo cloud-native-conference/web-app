@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NavBar } from "./NavBar/NavBar";
 import { Conferences } from "./Pages/Conferences/Conferences";
 import { CreateConference } from "./Pages/Conferences/CreateConference";
-import { Sessions } from "./Pages/Sessions/Sessions";
 
 export const App: React.FunctionComponent = () => (
   <BrowserRouter>
@@ -15,9 +14,6 @@ export const App: React.FunctionComponent = () => (
       </Route>
       <Route path="/conferences">
         <Conferences />
-      </Route>
-      <Route path="/sessions">
-        <Sessions />
       </Route>
       <Route path="/">
         <Home />

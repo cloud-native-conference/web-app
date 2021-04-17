@@ -1,12 +1,37 @@
 import * as React from "react";
-import { useState } from "react";
+import { useReducer } from "react";
 import { useHistory } from "react-router";
 import { createConference } from "../../api/api";
 import { urlify } from "../../urlify/urlify";
 
+type State = {
+  name: string;
+  description: string;
+};
+type Action = {
+  type: "UPDATE_NAME" | "UPDATE_DESCRIPTION";
+  value: string;
+};
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "UPDATE_NAME":
+      return {
+        ...state,
+        name: action.value,
+      };
+    case "UPDATE_DESCRIPTION":
+      return {
+        ...state,
+        description: action.value,
+      };
+  }
+};
+
 export const CreateConference: React.FC = () => {
-  const [confName, setConfName] = useState("");
-  const [description, setDescription] = useState("");
+  const [state, dispatch] = useReducer(reducer, {
+    name: "",
+    description: "",
+  });
   const history = useHistory();
   return (
     <div>
@@ -23,11 +48,10 @@ export const CreateConference: React.FC = () => {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                console.log("onSubmit");
                 await createConference({
-                  description: description,
-                  uniqueName: urlify(confName),
-                  displayName: confName,
+                  description: state.description,
+                  uniqueName: urlify(state.name),
+                  displayName: state.name,
                 });
                 history.push("/conferences");
               }}
@@ -49,9 +73,12 @@ export const CreateConference: React.FC = () => {
                           id="conference_name"
                           className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
                           placeholder="My Epic Conference"
-                          value={confName}
+                          value={state.name}
                           onChange={(e) => {
-                            setConfName(e.target.value);
+                            dispatch({
+                              type: "UPDATE_NAME",
+                              value: e.target.value,
+                            });
                           }}
                         />
                       </div>
@@ -71,9 +98,12 @@ export const CreateConference: React.FC = () => {
                         name="description"
                         rows={3}
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        value={description}
+                        value={state.description}
                         onChange={(e) => {
-                          setDescription(e.target.value);
+                          dispatch({
+                            type: "UPDATE_DESCRIPTION",
+                            value: e.target.value,
+                          });
                         }}
                       ></textarea>
                     </div>

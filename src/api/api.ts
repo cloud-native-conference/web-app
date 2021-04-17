@@ -9,15 +9,15 @@ export const getConferences = async (): Promise<Conference[]> => {
 };
 
 export const createConference = async (
-  conference: Conference
+  conference: Omit<Conference, "id">
 ): Promise<Conference> => {
- const response = await fetch(`${ENDPOINT}/conferences`, {
+  const response = await fetch(`${ENDPOINT}/conferences`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(conference),
   });
-  const json : Conference= await response.json();
+  const json: Conference = await response.json();
   return json;
 };
