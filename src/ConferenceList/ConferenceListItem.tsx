@@ -7,7 +7,7 @@ interface Props {
 
 export const ConferenceListItem: React.FC<Props> = ({ conference }) => (
   <div className="mt-6">
-    <div className="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
+    <div className="px-10 py-6 bg-white rounded-lg shadow-md m-auto">
       <div className="mt-2">
         <a
           href="#"
