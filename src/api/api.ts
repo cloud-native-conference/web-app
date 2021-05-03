@@ -8,6 +8,16 @@ export const getConferences = async (): Promise<Conference[]> => {
   return conferences;
 };
 
+export const getConference = async (
+  uniqueName: string
+): Promise<Conference> => {
+  const response = await fetch(
+    `${ENDPOINT}/conferences?uniqueName=${uniqueName}`
+  );
+  const conference: Conference = (await response.json())[0];
+  return conference;
+};
+
 export const createConference = async (
   conference: Omit<Conference, "id">
 ): Promise<Conference> => {

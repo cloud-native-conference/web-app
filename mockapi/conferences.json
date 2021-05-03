@@ -29,6 +29,12 @@
       "uniqueName": "test-conf-5",
       "displayName": "Test Conference 5",
       "description": "something fairly interesting"
+    },
+    {
+      "description": "This is to test another test conference",
+      "uniqueName": "Another%20test%20conference",
+      "displayName": "Another test conference",
+      "id": "XXnVay-"
     }
   ]
 }

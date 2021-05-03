@@ -6,7 +6,7 @@ import { Hamburger } from "./Hamburger";
 const MenuItems = [
   {
     text: "Conferences",
-    href: "/conferences",
+    href: "/",
   },
 ];
 

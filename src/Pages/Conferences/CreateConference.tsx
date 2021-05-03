@@ -53,7 +53,7 @@ export const CreateConference: React.FC = () => {
                   uniqueName: urlify(state.name),
                   displayName: state.name,
                 });
-                history.push("/conferences");
+                history.push("/");
               }}
             >
               <div className="shadow sm:rounded-md sm:overflow-hidden">

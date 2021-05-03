@@ -1,4 +1,4 @@
-export interface Conference {
+export type Conference = {
   id: string;
   uniqueName: string;
   displayName: string;
