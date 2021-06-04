@@ -7,6 +7,15 @@ export const getConferences = async (): Promise<Conference[]> => {
   const conferences: Conference[] = await response.json();
   return conferences;
 };
+export const getConferenceById = async (
+  id: string
+): Promise<Conference> => {
+  const response = await fetch(
+    `${ENDPOINT}/conferences/${id}`
+  );
+  const conference: Conference = await response.json();
+  return conference;
+};
 
 export const getConference = async (
   uniqueName: string

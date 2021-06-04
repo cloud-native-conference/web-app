@@ -35,6 +35,12 @@
       "uniqueName": "Another%20test%20conference",
       "displayName": "Another test conference",
       "id": "XXnVay-"
+    },
+    {
+      "description": "a conference for friday's",
+      "uniqueName": "friday%20conference",
+      "displayName": "friday conference",
+      "id": "Svh4Fn7"
     }
   ]
 }

@@ -1,19 +1,20 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { useRouteMatch } from "react-router";
-import { getConference } from "../../api/api";
+import { useParams } from "react-router";
+import { getConferenceById } from "../../api/api";
 import { Conference as ConferenceComponent } from "../../Conference/Conference";
 import { Conference as Model } from "../../models/conference";
 
+
 export const Conference: React.FC = () => {
   const [conference, setConference] = useState<Model>();
-  const match = useRouteMatch<{ uniqueName: string }>();
-  const uniqueName = match.params.uniqueName;
+  const match = useParams<{ id: string }>();
+  const conferenceId = match.id;
   useEffect(() => {
-    getConference(uniqueName).then((c) => {
+    getConferenceById(conferenceId).then((c) => {
       setConference(c);
     });
-  }, [uniqueName]);
+  }, [conferenceId]);
   return conference ? (
     <ConferenceComponent conference={conference} />
   ) : (

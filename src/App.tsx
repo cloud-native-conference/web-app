@@ -12,7 +12,7 @@ export const App: React.FunctionComponent = () => (
       <Route path="/new-conference">
         <CreateConference />
       </Route>
-      <Route path="/conferences/:uniqueName">
+      <Route path="/conferences/:id">
         <Conference />
       </Route>
       <Route path="/">

@@ -11,7 +11,7 @@ export const ConferenceListItem: React.FC<Props> = ({ conference }) => (
     <div className="px-10 py-6 bg-white rounded-lg shadow-md m-auto">
       <div className="mt-2">
         <Link
-          to={`/conferences/${conference.uniqueName}`}
+          to={`conferences/${conference.id}`}
           className="text-2xl text-gray-700 font-bold hover:underline"
         >
           {conference.displayName}
